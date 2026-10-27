@@ -1,0 +1,4 @@
+../Core/Src/Tremolo.c:3:6:TremoloInit	24	static
+../Core/Src/Tremolo.c:21:6:Tremolo_SetDepth	16	static
+../Core/Src/Tremolo.c:34:6:Tremolo_SetLFO_Frequency	16	static
+../Core/Src/Tremolo.c:55:7:Tremolo_Update	16	static

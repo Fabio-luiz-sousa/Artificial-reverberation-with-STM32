@@ -1,0 +1,5 @@
+../Schroeder_Reverb/Schroeder_Reverb.c:4:6:CombFilterInit	40	static
+../Schroeder_Reverb/Schroeder_Reverb.c:21:6:AllPassFilterInit	32	static
+../Schroeder_Reverb/Schroeder_Reverb.c:35:7:CombFilterUpdate	32	static
+../Schroeder_Reverb/Schroeder_Reverb.c:44:7:AllPassFilterUpdate	32	static
+../Schroeder_Reverb/Schroeder_Reverb.c:54:6:CombFilterSetTimeDelay	32	static
