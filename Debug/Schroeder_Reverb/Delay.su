@@ -1,3 +1,3 @@
 ../Schroeder_Reverb/Delay.c:3:6:DelayInit	24	static
 ../Schroeder_Reverb/Delay.c:26:7:DelayRead	16	static
-../Schroeder_Reverb/Delay.c:31:6:DelayWrite	16	static
+../Schroeder_Reverb/Delay.c:32:6:DelayWrite	16	static

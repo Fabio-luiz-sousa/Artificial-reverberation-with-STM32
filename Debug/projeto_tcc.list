@@ -1308,17 +1308,17 @@ static void MX_TIM3_Init(void)
  80009ce:	4b2b      	ldr	r3, [pc, #172]	@ (8000a7c <MX_TIM3_Init+0xe0>)
  80009d0:	4a2b      	ldr	r2, [pc, #172]	@ (8000a80 <MX_TIM3_Init+0xe4>)
  80009d2:	601a      	str	r2, [r3, #0]
-  htim3.Init.Prescaler = 6;
+  htim3.Init.Prescaler = 79;
  80009d4:	4b29      	ldr	r3, [pc, #164]	@ (8000a7c <MX_TIM3_Init+0xe0>)
- 80009d6:	2206      	movs	r2, #6
+ 80009d6:	224f      	movs	r2, #79	@ 0x4f
  80009d8:	605a      	str	r2, [r3, #4]
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
  80009da:	4b28      	ldr	r3, [pc, #160]	@ (8000a7c <MX_TIM3_Init+0xe0>)
  80009dc:	2200      	movs	r2, #0
  80009de:	609a      	str	r2, [r3, #8]
-  htim3.Init.Period = 8980;
+  htim3.Init.Period = 9999;
  80009e0:	4b26      	ldr	r3, [pc, #152]	@ (8000a7c <MX_TIM3_Init+0xe0>)
- 80009e2:	f242 3214 	movw	r2, #8980	@ 0x2314
+ 80009e2:	f242 720f 	movw	r2, #9999	@ 0x270f
  80009e6:	60da      	str	r2, [r3, #12]
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
  80009e8:	4b24      	ldr	r3, [pc, #144]	@ (8000a7c <MX_TIM3_Init+0xe0>)
@@ -1455,13 +1455,13 @@ static void MX_TIM6_Init(void)
  8000aa0:	4b11      	ldr	r3, [pc, #68]	@ (8000ae8 <MX_TIM6_Init+0x64>)
  8000aa2:	2200      	movs	r2, #0
  8000aa4:	609a      	str	r2, [r3, #8]
-  htim6.Init.Period = 1308;
+  htim6.Init.Period = 1666;
  8000aa6:	4b10      	ldr	r3, [pc, #64]	@ (8000ae8 <MX_TIM6_Init+0x64>)
- 8000aa8:	f240 521c 	movw	r2, #1308	@ 0x51c
+ 8000aa8:	f240 6282 	movw	r2, #1666	@ 0x682
  8000aac:	60da      	str	r2, [r3, #12]
-  htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+  htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
  8000aae:	4b0e      	ldr	r3, [pc, #56]	@ (8000ae8 <MX_TIM6_Init+0x64>)
- 8000ab0:	2280      	movs	r2, #128	@ 0x80
+ 8000ab0:	2200      	movs	r2, #0
  8000ab2:	619a      	str	r2, [r3, #24]
   if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
  8000ab4:	480c      	ldr	r0, [pc, #48]	@ (8000ae8 <MX_TIM6_Init+0x64>)
@@ -17591,6 +17591,7 @@ float DelayRead(Delay *dl)
  800630c:	b083      	sub	sp, #12
  800630e:	af00      	add	r7, sp, #0
  8006310:	6078      	str	r0, [r7, #4]
+	// lê a amostra atrasada no index atual
     return dl->memory[dl->index];
  8006312:	687b      	ldr	r3, [r7, #4]
  8006314:	689a      	ldr	r2, [r3, #8]
@@ -17616,6 +17617,7 @@ void DelayWrite(Delay *dl, float in)
  8006336:	af00      	add	r7, sp, #0
  8006338:	6078      	str	r0, [r7, #4]
  800633a:	ed87 0a00 	vstr	s0, [r7]
+	// escreve a nova amostra no index atual
     dl->memory[dl->index] = in;
  800633e:	687b      	ldr	r3, [r7, #4]
  8006340:	689a      	ldr	r2, [r3, #8]
@@ -17626,6 +17628,7 @@ void DelayWrite(Delay *dl, float in)
  800634a:	683a      	ldr	r2, [r7, #0]
  800634c:	601a      	str	r2, [r3, #0]
 
+    // incrementa o index
     dl->index++;
  800634e:	687b      	ldr	r3, [r7, #4]
  8006350:	685b      	ldr	r3, [r3, #4]
